@@ -1,0 +1,10 @@
+What Field do you study/work in?
+How familiar are you with cloud service providers? I.E Amazon Web Services, Google Cloud Platform, etc. 
+How much is cloud computing used in your field of study/work?
+How interested are you in using cloud computing in your field? 
+Have you used any cloud service providers before?
+Do you often need to gather and analyze data?
+Do you need to store long term historical data
+How useful are graphs of your data to you?
+How familiar are you with different database technologies? 
+How do you typically store your data?

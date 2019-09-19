@@ -1,0 +1,65 @@
+---
+
+- name: Remove old Docker things
+  apt: name={{item}} state=absent
+  with_items:
+        - docker
+        - docker-engine
+        - docker.io
+        - containerd
+        - run
+
+- name: Remove old pip files
+  pip: name={{item}} state=absent
+  with_items:
+        - docker
+        - docker-compose
+        - docker-py
+
+- name: Allow apt to install over https
+  apt: name={{item}} state=installed
+  with_items:
+       - apt-transport-https
+       - ca-certificates
+       - curl
+       - gnupg-agent
+       - software-properties-common
+
+- name: Add docker repo Key
+  shell:  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+- name: Add docker repo
+  shell: sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+- name: update repo
+  apt:
+    update_cache: yes
+
+- name: Install docker and requirements
+  apt: name={{item}} state=installed
+  with_items:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+        - python3-pip
+
+- name: Install pip requirements
+  pip: name={{item}} state=present
+  with_items:
+        - docker
+        - docker-compose
+
+- name: Download docker compose
+  shell: curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+- name: Allow docker compose to run
+  shell: chmod +x /usr/local/bin/docker-compose
+
+- name: Copy docker compose files onto server
+  copy:
+    src: ../../../../docker
+    dest: /home/ubuntu/
+
+- name: run the services defined in docker-compose.yml
+  docker_service:
+    project_src: /home/ubuntu/docker
