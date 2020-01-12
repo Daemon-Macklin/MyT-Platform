@@ -1,6 +1,0 @@
----
-- hosts: vms
-  become: yes
-  roles:
-  - role: dmacklin.dockerAnsible
-...

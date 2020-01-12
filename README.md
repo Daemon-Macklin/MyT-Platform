@@ -1,51 +1,22 @@
 # MyT IoT Platform
 
-This program will allow the user to deploy a number of services onto a vm on AWS, Azure, GCP, Openstack etc. That will allow the user to graph data. This is aimed mostly for Sensor data. Docker will be used on the machine for each of the services installed on the machine.  
+MyT is a cloud agnostic orchestration and management tool which allows users to design an IoT platform and then deploy it on a cloud service or server of their choice. Allowing the user to customize some aspects of their platform. For example different database solutions offer different features and are typically designed for different data. If a user has very structured data they will be more suitable for a relational database. On the other hand, if the user does not have structured data, or does not know what data they will be collecting they would be more suited to a NoSQL solution. This will provide an IoT platform that will suit the needs of the user. The MyT application will be a front end to manage the users platforms. Automating parts of maintaining your own IoT stack, allowing the user to focus on the rest of their IoT system.
 
-Services:
-1. Database
-2. MQTT broker
-3. Graphing Techology(Grafana)
-4. Data processing section user can customize.
-
-
-The aim of this application that will allow the user press one button have all of their infrastructure deployed. Simply point the application at the vm or cloud platform of choice, and your infrastructure will be there and it will be reliable and secure.
+## Services:
+1. Database chosen by user
+2. RabbitMQ messaging broker
+3. Grafana data visualization
+4. User defined data processing written in Python.
 
 ## Requirements
 
-1. Ansible roles and docker-compose files to install and configure services on a machine.
-2. Application for use to deploy/manage IoT stack Desktop(Python/wxPython).
-3. Docker compose files to manage containers.
-4. Terraform code to create new infrastructure.
+1. Terraform scripts to create new infrastructure.
+2. Ansible playbooks configure a machine.
+3. Docker compose files to create Docker containers for applications.
+4. Application to deploy/manage IoT platforms.
 
-#### Ansible Roles
-These will cover the management side of the deployment. The user will point at a resouces in the cloud and ansible will install the required packages on the machine. At the moment it is just the docker install, as well as other server config 
+## Git Repos
 
-#### Docker files
-The docker-compose file will spin up all of the required services and host them in their own containers. 
-
-#### Python Destop Application
-This application will allow the user to configure the infrastructre, select cloud platform, services required, passwords, credentials etc. 
-
-This will also be a management console for the user. 
-
-This will need to be backed up by a web backend to handle user support.
-
-#### Terraform
-Terraform will be used for users who don't know how to spin up their own infrastructe. This will automatically spin up infrastructure on the users selected cloud platform. Also configre the security groups etc. It will automatically gather the information for the ansible roles to install the required pacakges.
-
-
-## To Do list
-
-- [x] Ansible Playbook to Deploy Docker.
-- [ ] Docker files to install/Configure services.
-- [ ] Application to deploy stack.
-- [ ] Terraform code to spin up infrastructure (Openstack).
-- [ ] Imporve Application.
-	- [ ] User Support. 
-	- [ ] More service deployment options/customization.
-	- [ ] Management pannel.
-- [ ] Terraform support for AWS, Azure and GCP (At least 2).
-
-
- 
+ 1. [Deployment demo](https://github.com/Daemon-Macklin/MyTDeploymentDemo)
+ 2. [Data Processing Application](https://github.com/Daemon-Macklin/MyTPlatformDataProcessingContainer)
+ 3. [MyT Platform Docker Compose](https://github.com/Daemon-Macklin/MyTPlatformDataProcessingContainer/blob/master/docker-compose.yml)
