@@ -19,4 +19,11 @@ MyT is a cloud agnostic orchestration and management tool which allows users to 
 
  1. [Deployment demo](https://github.com/Daemon-Macklin/MyTDeploymentDemo)
  2. [Data Processing Application](https://github.com/Daemon-Macklin/MyTPlatformDataProcessingContainer)
- 3. [MyT Platform Docker Compose](https://github.com/Daemon-Macklin/MyTPlatformDataProcessingContainer/blob/master/docker-compose.yml)
+ 3. [Backend](https://github.com/Daemon-Macklin/MyTBackendService)
+ 4. [Frontend](https://github.com/Daemon-Macklin/MyTFrontEndService)
+
+## Documentation
+
+1. [Project Proposal](Documentation/ProjectProposal.pdf)
+2. [Semester 1 Report](Documentation/Semester1Report.pdf)
+3. [Semester 2 Report](Documentation/Semester2Report.pdf)
